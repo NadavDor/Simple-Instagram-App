@@ -1,22 +1,22 @@
 const AWS = require('aws-sdk');
-const env = require('./credentials.js');
+const s3Credentials = require('./credentials.js');
  
 const s3Client = new AWS.S3({
-    accessKeyId: env.AWS_ACCESS_KEY,
-    secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
-  region : env.REGION
+    accessKeyId: s3Credentials.AWS_ACCESS_KEY,
+    secretAccessKey: s3Credentials.AWS_SECRET_ACCESS_KEY,
+  region : s3Credentials.REGION
 });
  
+const downloadParams = {
+  Bucket: s3Credentials.Bucket
+}
+
 const uploadParams = {
-         Bucket: env.Bucket, 
-         Key: '', // pass key
-         Body: null, // pass file body
+         Bucket: s3Credentials.Bucket, 
+         Key: '', 
+         Body: null,
 };
 
-const downloadParams = {
-  Bucket: env.Bucket
-}
- 
 const s3 = {};
 s3.s3Client = s3Client;
 s3.uploadParams = uploadParams;

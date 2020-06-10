@@ -7,6 +7,6 @@ const AWS = require('../remote-Integration/AWS.js');
 appRouter.get('/', AWS.download);
 
 // posts a new picutre in our S3 bucket.
-appRouter.post('/upload', upload.single("file"), AWS.doUpload);
- 
+appRouter.post('/upload', upload.single("file"), AWS.upload);
+
 module.exports = appRouter;
