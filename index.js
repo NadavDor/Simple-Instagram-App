@@ -1,7 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const home = require('./routes/home');
-const upload = require('./routes/upload');
+const appRoueter= require('./routes/home');
 
 app = express();
 app.set('view engine', 'ejs');
@@ -11,8 +10,7 @@ app.set('view engine', 'ejs');
 app.use(morgan('tiny'));
 
 // Routers
-app.use('/', home);
-app.use('/upload', upload);
+app.use('/', appRoueter);
 
 // start listening for requests
 const port = process.env.PORT || 3000;

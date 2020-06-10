@@ -1,6 +1,6 @@
 const express = require('express');
-const router = express.Router();
-
+const appRouter = express.Router();
+let upload = require('../config/multer.config.js');
 const awsWorker = require('../controllers/aws.controller.js');
 
 // router.get('/', (req, res)=>{
@@ -8,6 +8,8 @@ const awsWorker = require('../controllers/aws.controller.js');
 // });
 
 // home page
-router.get('/', awsWorker.download);
+appRouter.get('/', awsWorker.download);
 
-module.exports = router;
+appRouter.post('/upload', upload.single("file"), awsWorker.doUpload);
+ 
+module.exports = appRouter;
