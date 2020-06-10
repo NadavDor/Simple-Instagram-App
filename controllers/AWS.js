@@ -1,6 +1,5 @@
 const s3 = require('../config/s3.config.js');
 const env = require('../config/s3.env.js');
- 
 const s3Client = s3.s3Client;
 
 exports.doUpload = (req, res) => {
@@ -24,8 +23,6 @@ exports.download = (async (req, res) => {
         Bucket: params.Bucket
     }).promise();
 
-    // console.log(images)
-
     images = images.Contents;
     images.sort(function(a, b) {
         var keyA = new Date(a.LastModified),
@@ -37,17 +34,11 @@ exports.download = (async (req, res) => {
       });
 
     const keys = getKeys(images);
-
-    // console.log(keys);
-
     const urls = getUrls(keys);
 
     console.log("The urls of the images:\n", urls);
 
-    // const table = createTable(tags);
-
-    // console.log(table);
-
+  
     res.render('index', {table: urls});
 })
 
@@ -69,42 +60,7 @@ function getUrls(keys){
             Key: keys[i],
             Expires: signedUrlExpirationSeconds
         });
-
         urls.push(url);
     }
-
     return urls;
 }
-
-// function extractRowData(rowNum, imgTags){
-//     const i = rowNum * 4;
-//     const rowData = imgTags.slice(i, i + 4);
-
-//     return rowData;
-// }
-
-// function createTableRow(rowData){
-//     let tableRow = "<tr>";
-//     for (let i = 0 ; i < rowData.length ; i++){
-//         tableRow += rowData[i];
-//     }
-//     tableRow += "</tr>";
-
-//     return tableRow;
-// }
-
-// function createTable(imgTags){
-//     const numOfRows = Math.ceil(imgTags.length / 4);
-//     let table = "<table>";
-//     for (let i = 0 ; i < numOfRows ; i++){
-//         let rowData = extractRowData(i, imgTags);
-//         // console.log(rowData);
-//         // console.log(createTableRow(rowData));
-//         table += createTableRow(rowData);
-//     }
-
-//     table += "</table>";
-//     return table;
-// }
-
-

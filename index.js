@@ -1,6 +1,6 @@
 const express = require('express');
+const appRoueter= require('./routes/appRoueter');
 const morgan = require('morgan');
-const appRoueter= require('./routes/home');
 
 app = express();
 app.set('view engine', 'ejs');
