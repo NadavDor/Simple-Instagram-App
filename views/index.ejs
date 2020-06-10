@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, intial-scale=1.0">
+        <title>Simple Instagram App</title>
+        <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+        <style>
+            .content {
+                 max-width: 600px;
+                 margin: auto;
+                 font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+            h1 {
+                font-size: 50px;
+            }
+            form {
+                margin-left: 170px;
+                margin-bottom: 50px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="content">
+            <h1>Simple Instagram App</h1>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <h3>Upload Your Pictures Here!</h3>
+                <label for="img"></label>
+                <input type="file" id="file" name="file" accept="image/*"><br>
+                <input type="submit" value="Upload">
+            </form>
+         </div>
+        <table>
+            <% for (var i =0 ; i < table.length ; i=i+4){ %>
+                <tr>
+                    <td>
+                        <img height='300' width='400' src=<%= table[i] %>>
+                    </td>
+                    <td>
+                        <img height='300' width='400' src=<%= table[i+1] %>>
+                    </td>
+                    <td>
+                        <img height='300' width='400' src=<%= table[i+2] %>>
+                    </td>
+                    <td>
+                        <img height='300' width='400' src=<%= table[i+3] %>>
+                    </td>
+                </tr>
+            <% } %>
+        </table>
+    </body>
+</html>
