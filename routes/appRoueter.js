@@ -1,7 +1,7 @@
 const express = require('express');
 const appRouter = express.Router();
 let upload = require('../config/multer.config.js');
-const AWS = require('../controllers/AWS.js');
+const AWS = require('../remote-Integration/AWS.js');
 
 // gets to html home page with 8 2 lines of pictures.
 appRouter.get('/', AWS.download);

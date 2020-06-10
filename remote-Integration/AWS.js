@@ -1,5 +1,5 @@
 const s3 = require('../config/s3.config.js');
-const env = require('../config/credentials.js');
+const s3Credentials = require('../config/credentials.js');
 const s3Client = s3.s3Client;
 
 exports.doUpload = (req, res) => {
@@ -56,7 +56,7 @@ function getUrls(keys){
     const signedUrlExpirationSeconds = 60 * 5;
     for (let i = 0 ; i < keys.length ; i++){
         const url = s3Client.getSignedUrl('getObject', {
-            Bucket: env.Bucket,
+            Bucket: s3Credentials.Bucket,
             Key: keys[i],
             Expires: signedUrlExpirationSeconds
         });
