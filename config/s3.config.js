@@ -15,11 +15,24 @@ const uploadParams = {
          Bucket: s3Credentials.Bucket, 
          Key: '', 
          Body: null,
+         Metadata: {}
 };
 
-const s3 = {};
-s3.s3Client = s3Client;
-s3.uploadParams = uploadParams;
-s3.downloadParams = downloadParams;
+const deleteParams = {
+  Bucket: s3Credentials.Bucket, 
+  Key: '',
+};
+
+const copyParams = {
+  Bucket: s3Credentials.Bucket, 
+  Key: '',
+}
+
+const s3 = {}
+s3.s3Client = s3Client
+s3.uploadParams = uploadParams
+s3.downloadParams = downloadParams
+s3.deleteParams = deleteParams
+s3.copyParams = copyParams
  
-module.exports = s3;
+module.exports = s3
