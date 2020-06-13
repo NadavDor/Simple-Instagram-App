@@ -18,7 +18,7 @@ spec:
         app: mean-demo
     spec:
       containers:
-        - image: 836922166496.dkr.ecr.us-west-2.amazonaws.com/mean_demo
+        - image: 836922166496.dkr.ecr.us-west-2.amazonaws.com/mean_demo:v1
           imagePullPolicy: Always
           name: mean-demo
           ports:
