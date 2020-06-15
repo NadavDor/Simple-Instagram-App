@@ -1,4 +1,5 @@
 # Simple-Instagram-App
+
 this is avery simple instagral like app that can upload and download pictures using an AWS S3 bucket.
 We balance our files between STANDARD and STANDARD_IA storage classes with a ratio of 20/80 respectivly.
 By that we can make the newer files more accessable and mantain cost.
