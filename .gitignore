@@ -117,4 +117,4 @@ dist
 .pnp.*
 
 # asw secret
-s3.config.js
+credentials.js
